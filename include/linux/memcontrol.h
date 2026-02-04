@@ -815,8 +815,9 @@ static inline u64 mem_cgroup_id(struct mem_cgroup *memcg)
 {
 	return memcg ? cgroup_id(memcg->css.cgroup) : 0;
 }
+#endif
 
-struct mem_cgroup *mem_cgroup_get_from_id(u64 id);
+struct mem_cgroup *mem_cgroup_get_from_ino(unsigned long ino);
 
 static inline struct mem_cgroup *mem_cgroup_from_seq(struct seq_file *m)
 {
@@ -1287,6 +1288,7 @@ static inline u64 mem_cgroup_id(struct mem_cgroup *memcg)
 {
 	return 0;
 }
+#endif
 
 static inline struct mem_cgroup *mem_cgroup_get_from_id(u64 id)
 {
